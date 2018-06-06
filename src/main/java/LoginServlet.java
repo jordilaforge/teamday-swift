@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet {
             response.setStatus(200);
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
-            out.print("{\"username\":\"admin\"}");
+            out.print("{\"username\":\"admin\",\"token\":\"admin\"}");
             out.flush();
         } else {
             response.setStatus(401);
