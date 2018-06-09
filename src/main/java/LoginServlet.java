@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class LoginServlet extends HttpServlet {
 
-    static final String LOGIN_TOKEN = "";
+    static final String LOGIN_TOKEN = "ee977806d7286510da8b9a7492ba58e2484c0ecc";
     private static final String VALID_USERNAME = "admin";
     private static final String VALID_PASSWORD = "password";
 
