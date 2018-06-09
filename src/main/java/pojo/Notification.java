@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Data
 public class Notification {
     final String title;
+    final String bedNumber;
     final LocalDateTime created;
     final int painIndex;
     final String localisation;

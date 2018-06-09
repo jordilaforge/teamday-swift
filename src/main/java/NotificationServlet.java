@@ -13,28 +13,47 @@ import java.util.StringJoiner;
 
 public class NotificationServlet extends HttpServlet {
 
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String token = request.getParameter("token");
-        if (Objects.equals(token, "token")) {
+        if (Objects.equals(token, LoginServlet.LOGIN_TOKEN)) {
             response.setStatus(200);
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
             List<Notification> notifications = new ArrayList<>();
-            Notification tee = Notification.builder()
-                    .title("Tee")
+            Notification tea = Notification.builder()
+                    .title("tea")
+                    .bedNumber("301.1")
                     .created(LocalDateTime.now())
                     .painIndex(0)
                     .localisation("")
                     .build();
-            notifications.add(tee);
-            Notification banane = Notification.builder()
-                    .title("Banane")
+            notifications.add(tea);
+            Notification banana = Notification.builder()
+                    .title("banana")
+                    .bedNumber("301.2")
                     .created(LocalDateTime.now())
-                    .painIndex(2)
+                    .painIndex(0)
                     .localisation("")
                     .build();
-            notifications.add(banane);
+            notifications.add(banana);
+            Notification backPain = Notification.builder()
+                    .title("backPain")
+                    .bedNumber("302.1")
+                    .created(LocalDateTime.now())
+                    .painIndex(9)
+                    .localisation("back")
+                    .build();
+            notifications.add(backPain);
+            Notification toilet = Notification.builder()
+                    .title("toilet")
+                    .bedNumber("302.2")
+                    .created(LocalDateTime.now())
+                    .painIndex(0)
+                    .localisation("")
+                    .build();
+            notifications.add(toilet);
             out.print(getNotificationsJson(notifications));
             out.flush();
         } else {
@@ -59,6 +78,8 @@ public class NotificationServlet extends HttpServlet {
                 createJsonAttribute("created", notification.getCreated().toString()) +
                 "," +
                 createJsonAttribute("localisation", notification.getLocalisation()) +
+                "," +
+                createJsonAttribute("bedNumber", notification.getBedNumber()) +
                 "," +
                 createJsonAttribute("painIndex", String.valueOf(notification.getPainIndex())) +
                 "}";
