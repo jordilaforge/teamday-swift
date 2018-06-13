@@ -31,7 +31,7 @@ public class NotificationServlet extends HttpServlet {
                     .build();
             notifications.add(tea);
             Notification banana = Notification.builder()
-                    .title("banana")
+                    .title("water")
                     .bedNumber("301.2")
                     .created(LocalDateTime.now())
                     .painIndex(0)
@@ -39,7 +39,7 @@ public class NotificationServlet extends HttpServlet {
                     .build();
             notifications.add(banana);
             Notification backPain = Notification.builder()
-                    .title("backPain")
+                    .title("pain")
                     .bedNumber("302.1")
                     .created(LocalDateTime.now())
                     .painIndex(9)
